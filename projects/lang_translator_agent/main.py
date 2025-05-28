@@ -2,7 +2,7 @@ from agents import Agent,AsyncOpenAI,OpenAIChatCompletionsModel,RunConfig,Runner
 # from dotenv import load_dotenv
 import streamlit as st
 import json
-# import os
+import os
 
 st.set_page_config(page_title="TransBot", layout="centered")
 
@@ -50,10 +50,15 @@ st.markdown("#### Translate 600+ languages")
 
 
 
-
 # Load language list
-with open('languages.json','r',encoding='utf-8') as f:
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+lang_path = os.path.join(BASE_DIR, 'languages.json')
+
+with open(lang_path, 'r', encoding='utf-8') as f:
     data = json.load(f)
+
+
+
 
 # Convert JSON to language list
 languages = [data[k] for k in data]
