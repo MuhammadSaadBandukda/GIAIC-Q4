@@ -1,8 +1,8 @@
 from agents import Agent,AsyncOpenAI,OpenAIChatCompletionsModel,RunConfig,Runner  # Assuming this handles translation logic
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 import streamlit as st
 import json
-import os
+# import os
 
 st.set_page_config(page_title="TransBot", layout="centered")
 
@@ -18,9 +18,9 @@ def run_async(func, *args, **kwargs):
 
 
 
-load_dotenv()
-
-gemini_api_key = os.getenv('GEMINI_API_KEY')
+# load_dotenv()
+gemini_api_key = st.secrets["GEMINI_API_KEY"]
+# gemini_api_key = os.getenv('GEMINI_API_KEY')
 if not gemini_api_key:
     st.write("Unable to access LLM")
 
