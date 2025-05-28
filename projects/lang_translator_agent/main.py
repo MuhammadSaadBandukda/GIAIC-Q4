@@ -52,7 +52,7 @@ st.markdown("#### Translate 600+ languages")
 
 
 # Load language list
-with open('./languages.json','r',encoding='utf-8') as f:
+with open('languages.json','r',encoding='utf-8') as f:
     data = json.load(f)
 
 # Convert JSON to language list
