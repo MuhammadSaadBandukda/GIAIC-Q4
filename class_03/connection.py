@@ -1,6 +1,4 @@
-# pip install openai-agents
-# pip install python-dotenv
-from agents import Agent, Runner, AsyncOpenAI, OpenAIChatCompletionsModel, RunConfig
+from agents import AsyncOpenAI, OpenAIChatCompletionsModel, RunConfig
 from dotenv import load_dotenv
 import os
 
@@ -27,18 +25,3 @@ config = RunConfig(
     model_provider=external_client,
     tracing_disabled=True
 )
-
-# Write Agent
-writer = Agent(
-    name = 'Writer Agent',
-    instructions=        # System/Developer Prompt
-    """You are a writer agent. Generate poem,
-    stories, essay, email etc."""
-)
-
-response = Runner.run_sync(
-    writer,
-    input = 'Write a 2 paragraph essay on Generative AI..',
-    run_config = config
-    )
-print(response.final_output)
